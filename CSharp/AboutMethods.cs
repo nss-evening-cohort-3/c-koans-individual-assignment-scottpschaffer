@@ -79,11 +79,11 @@ namespace DotNetKoans.CSharp
         //Any of the parameter things you can do with
         //extension methods you can also do with local methods
 
-       /* [Koan(5)]
+        [Koan(5)]
         public void ExtensionMethodsWithVariableParameters()
         {
-            Assert.Equal(new System.String[] {"Cory, Will, Corey"}, this.MethodWithVariableArguments("Cory", "Will", "Corey"));
-        } */
+            Assert.Equal(new System.String[] {"Cory", "Will", "Corey"}, this.MethodWithVariableArguments("Cory", "Will", "Corey"));
+        }
 
         //Extension methods can extend any class my referencing 
         //the name of the class they are extending. For example, 

@@ -195,7 +195,7 @@ namespace DotNetKoans.CSharp
 
 			Array.ForEach(greeting.ToCharArray(), s.Look);
 
-			Assert.Equal(FILL_ME_IN, s.Letters);
+			Assert.Equal("Hello world", s.Letters);
 		}
 
 		private bool IntEqualsFourtyTwo(int x)
@@ -209,19 +209,20 @@ namespace DotNetKoans.CSharp
 		[Koan(16)]
 		public void BuiltInPredicateDelegateIntSatisfied()
 		{
-			//The Predicate<T> delegate 
-			//  public delgate bool Predicate<T>(T obj);
-			//Predicate allows you to codify a condition and pass it around. 
-			//You use it to determine if an object satisfies some criteria. 
+            //The Predicate<T> delegate 
+            //  public delgate bool Predicate<T>(T obj);
+            //Predicate allows you to codify a condition and pass it around. 
+            //You use it to determine if an object satisfies some criteria. 
 
-			Predicate<int> i = (Predicate<int>)FILL_ME_IN;
+            Predicate<int> i = (Predicate<int>)(x => x > 1);
+            //public bool qwert(int q) { return q > 0; }
 			Assert.True(i(42));
 		}
 		[Koan(17)]
 		public void BuiltInPredicateDelegateStringSatisfied()
 		{
 			//Because it is a template, you can work with any type
-			Predicate<string> s = (Predicate<string>)FILL_ME_IN;
+			Predicate<string> s = (Predicate<string>)(x => x == "42");
 			Assert.True(s("42"));
 
 			//Predicate is not overloaded, so unlike Action<> you cannot do this...
@@ -239,7 +240,7 @@ namespace DotNetKoans.CSharp
 			//Predicate can be used to find an element in an array
 			var countries = new []{ "Greece", "Spain", "Uruguay", "Japan" };
 
-			Assert.Equal(FILL_ME_IN, Array.Find(countries, StartsWithS));
+			Assert.Equal("Spain", Array.Find(countries, StartsWithS));
 		}
 
 		private bool IsInSouthAmerica(string country)
@@ -253,7 +254,7 @@ namespace DotNetKoans.CSharp
 			//Predicate can also be used when verifying 
 			var countries = new[] { "Greece", "Spain", "Uruguay", "Japan" };
 
-			Assert.Equal(FILL_ME_IN, Array.TrueForAll(countries, IsInSouthAmerica));
+			Assert.Equal(false, Array.TrueForAll(countries, IsInSouthAmerica));
 		}
 
 		private string FirstMonth()
@@ -275,7 +276,7 @@ namespace DotNetKoans.CSharp
 			//If you specify more than one parameter, then you are specifying the parameter types as well.
 
 			Func<string> d = FirstMonth;
-			Assert.Equal(FILL_ME_IN, d());
+			Assert.Equal("January", d());
 		}
 		[Koan(21)]
 		public void FunctionReturnsInt()
@@ -284,7 +285,7 @@ namespace DotNetKoans.CSharp
 			//The first type parameters define the parameter types and the last one is the return type. So the following matches
 			//a method which takes two int parameters and returns a int.
 			Func<int, int, int> a = Add;
-			Assert.Equal(FILL_ME_IN, a(1, 1));
+			Assert.Equal(2, a(1, 1));
 		}
 
 		public class Car
@@ -316,7 +317,7 @@ namespace DotNetKoans.CSharp
 			Comparison<Car> by = SortByModel;
 			Array.Sort(cars, by);
 
-			Assert.Equal(FILL_ME_IN, cars[0].Model);
+			Assert.Equal("GTV-6", cars[0].Model);
 		}
 
 		private string Stringify(int x)
@@ -334,7 +335,7 @@ namespace DotNetKoans.CSharp
 
 			var result = Array.ConvertAll(numbers, c);
 
-			Assert.Equal(FILL_ME_IN, result);
+			Assert.Equal(new string[] { "1", "2", "3", "4" }, result);
 		}
 	}
 }
